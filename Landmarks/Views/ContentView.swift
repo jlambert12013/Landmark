@@ -8,40 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         
-        VStack {
-            MapView()
-                .frame(height: 300)
-                .ignoresSafeArea(edges: .top)
+        NavigationView {
             
-            CircleImage()
-                .offset(y: -130).padding(.bottom, -130)
-            
-            VStack(alignment: .leading) {
-                Text("Turtle Rock")
-                    .font(.title)
+            List(landmarks) { landmark in
                 
-                HStack {
-                    Text("Jim Lambert National Tree Park")
-                        .font(.subheadline)
-                    Spacer()
-                    Text("Alabama")
-                        .font(.subheadline)
-                }.font(.subheadline).foregroundColor(.secondary)
+                NavigationLink {
+                    LandmarkDetail(landmark: landmark)
+                } label: {
+                    LandmarkRow(landmark: landmark)
+                }
                 
-                
-                Divider()
-                
-                Text("About Turtle Rock")
-                    .font(.title2)
-                Text("Descriptive text goes here.")
-                
-            }.padding()
-            
-            
-            
-            Spacer()
+            }.navigationTitle("Landmarks")
         }
     }
 }
