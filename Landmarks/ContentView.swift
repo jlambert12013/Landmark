@@ -10,9 +10,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("Turtle Rock")
-                .font(.title)
-                .foregroundColor(.green)
+            VStack {
+                Text("Turtle Rock")
+                    .font(.title)
+                Text("Jim Lambert National Tree Park")
+                    .font(.subheadline)
+            }
         }
         .padding()
     }
